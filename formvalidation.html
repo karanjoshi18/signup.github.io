@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="css/signup.css" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+
+	<div class="container-fluid a1" > 
+
+	<div class="container">
+		<br>
+		<br>
+		<div class="col-lg-8 m-auto d-block ">
+			<form onsubmit="return validation()" class="">
+				<h4 class="text-success "> Please fill this form to create an account </h4>
+				
+				<div class="form-group">
+					<label> Username </label>
+					<input type="text" name="user" class="form-control" id="user" autocomplete="off">
+					<span id="username" class="text-danger font-weight-bold"></span>	
+				</div>
+
+				<div class="form-group">
+					<label> Password </label>
+					<input type="password" name="pass" class="form-control" id="pass" autocomplete="off">	
+					<span id="password" class="text-danger font-weight-bold"></span>
+				</div>
+
+				<div class="form-group">
+					<label> Confirm Password </label>
+					<input type="password" name="onpass" class="form-control" id="onpass" autocomplete="off">
+					<span id="confirmpassword" class="text-danger font-weight-bold"></span>	
+				</div>
+
+				<div class="form-group">
+					<label> Mobile Number </label>
+					<input type="number" name="mobilenumber" class="form-control" id="mobilenumber" autocomplete="off">
+					<span id="mobileno" class="text-danger font-weight-bold"></span>	
+				</div>
+
+				<div class="form-group">
+					<label> Email: </label>
+					<input type="email" name="email" class="form-control" id="emails" autocomplete="off">	
+					<span id="emailids" class="text-danger font-weight-bold"></span>
+				</div>
+				<div class="input-group">
+					<input type="checkbox" > <p> &nbsp; I accept the <font color="blue"> <a href="#"> Terms of Use </a></font> &  <font color="blue"><a href=""> Privacy Policy. </a> </font></p>
+				</div>
+
+				<input type="submit" name="submit" value="Sign Up" class="btn btn-success" autocomplete="off">
+					
+						<a href="https://www.facebook.com/r.php"> <i class="fa fa-facebook text-white a2 ab22 ab32"> </i> </a>
+		               <a href="https://twitter.com/i/flow/signup"> <i class="fa fa-twitter text-white ab22 ab32 ab33"> </i> </a>
+		               <a href="https://twitter.com/i/flow/signup"> <i class="fa fa-google text-white ab22 ab32 ab34"> </i> </a>
+               		
+			</form>
+
+			
+			
+			
+		</div>
+
+		
+	</div>
+	</div>
+
+	<script type="text/javascript">
+		
+		function validation(){
+
+			var user = document.getElementById('user').value;
+			var pass = document.getElementById('pass').value;
+			var onpass = document.getElementById('onpass').value;
+			var mobilenumber = document.getElementById('mobilenumber').value;
+			var emails = document.getElementById('emails').value;
+
+
+
+
+			if(user.trim() == ""){
+				document.getElementById('username').innerHTML = " ** please fill the username field";
+				return false;                                                                         //return is used to not go to server
+			}
+			if((user.length <= 2) || (user.length > 20)) {                                             // || is for or
+				document.getElementById('username').innerHTML = " ** user lenth must be between 2 and 20";
+				return false; 
+			}
+			if(!isNaN(user)){                                                                         //! is not ,NaN is for number
+				document.getElementById('username').innerHTML = " ** only chracters are allowed";
+				return false; 
+			}
+
+
+
+			if(pass.trim() == ""){
+				document.getElementById('password').innerHTML = " ** please fill the password field";
+				return false;  
+			}
+			if((pass.length <= 5) || (pass.length > 20)){                                             // !! is for or
+				document.getElementById('password').innerHTML = " ** user  password lenth must be between 5 and 20";
+				return false; 
+			}
+
+
+
+			if(pass!=onpass){
+				document.getElementById('confirmpassword').innerHTML = " ** password are not matching";
+				return false; 
+			}
+
+			if(onpass.trim() == ""){
+				document.getElementById('confirmpassword').innerHTML = " ** please fill the confirm password field";
+				return false;  
+			}
+
+
+
+			if(mobilenumber.trim() == ""){
+				document.getElementById('mobileno').innerHTML = " ** please fill the mobile no field";
+				return false;  
+			}
+			if(isNaN(mobilenumber)){
+				document.getElementById('mobileno').innerHTML = " ** user must write digits only not characters";
+				return false;  
+			}
+			if(mobilenumber.length!=10){
+				document.getElementById('mobileno').innerHTML = " ** mobile no must be 10 digits only";
+				return false; 
+			}
+
+
+
+			if(emails.trim() == "") {
+				document.getElementById('emailids').innerHTML = " ** please fill the email id field";
+				return false;  
+			}
+			if(emails.indexOf('@') <= 0 ){
+				document.getElementById('emailids').innerHTML = " ** @ invalid position";
+				return false;  
+			}
+			if((emails.charAt(emails.length-4)!='.') && (emails.charAt(emails.length-3)!='.')){
+				document.getElementById('emailids').innerHTML = " ** . invalid position";
+				return false;  
+			}
+
+			else{
+				return true;
+			}
+		}
+
+	</script>
+
+</body>
+</html>
